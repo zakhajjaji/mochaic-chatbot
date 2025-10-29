@@ -1,4 +1,3 @@
-import Image from "next/image";
 import ChatWidget from "@/components/ChatWidget";
 
 export default function Home() {

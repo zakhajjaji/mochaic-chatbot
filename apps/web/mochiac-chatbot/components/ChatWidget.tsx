@@ -27,7 +27,7 @@ const ChatMessage = ({ message, isUser }: chatMessageProps) => {
 
 export default function ChatWidget() {
   return (
-    <div className="fixed bottom-4 right-4 w-96 h-full bg-white rounded-lg shadow-lg">
+    <div className="fixed bottom-4 right-4 w-96 h-full bg-card rounded-lg shadow-lg">
       <h1>Chat Widget</h1>
     </div>
   );
