@@ -26,7 +26,6 @@ const MessageBubble = ({ message }: { message: ChatMessage }) => {
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimised, setIsMinimised] = useState(false);
-  const [showCloseConfirm, setShowCloseConfirm] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([  {
     id: "Greet-1",
     role: "assistant",
@@ -47,6 +46,7 @@ export default function ChatWidget() {
   const [feedback, setFeedback] = useState<Record<number, "up" | "down">>({});
   const [ctas, setCtas] = useState<string[]>([]);
   const [aiSuggestions, setAiSuggestions] = useState<string[]>([]);
+  const [showCloseConfirm, setShowCloseConfirm] = useState(false);
   
 
   const listRef = useRef<HTMLDivElement>(null);
