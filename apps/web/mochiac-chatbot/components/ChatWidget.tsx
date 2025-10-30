@@ -25,16 +25,16 @@ export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimised, setIsMinimised] = useState(false);
   const [showCloseConfirm, setShowCloseConfirm] = useState(false);
-  const [message, setMessage] = useState<ChatMessage[]>([]);
+  const [messags, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
   const [isThinking, setIsThinking] = useState<boolean>(false);
   const [isGenerating, setIsGenerating] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [lastAcivtityAt, setLastAcivtityAt] = useState<Date | null>(null);
+  const [lastActivityAt, setLastActivityAt] = useState<Date | null>(null);
   const [showSoftReset, setShowSoftReset] = useState<boolean>(false);
-  const [CopiedId, setCopiedId] = useState<string | null>(null);
+  const [copiedId, setCopiedId] = useState<string | null>(null);
   const [feedback, setFeedback] = useState<Record<number, "up" | "down">>({});
 
   // later add const for CTAs AND AI suggestions 
