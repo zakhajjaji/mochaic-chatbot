@@ -26,7 +26,14 @@ export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimised, setIsMinimised] = useState(false);
   const [showCloseConfirm, setShowCloseConfirm] = useState(false);
-  const [messags, setMessages] = useState<ChatMessage[]>([]);
+  const [messages, setMessages] = useState<ChatMessage[]>([  {
+    id: "Greet-1",
+    role: "assistant",
+    content: "Hi! Ask me anything.",
+    timestamp: new Date(),
+    messageType: "text",
+  }]);
+
   const [input, setInput] = useState("");
   const [isThinking, setIsThinking] = useState<boolean>(false);
   const [isGenerating, setIsGenerating] = useState<boolean>(false);
@@ -40,8 +47,21 @@ export default function ChatWidget() {
   const [ctas, setCtas] = useState<string[]>([]);
   const [aiSuggestions, setAiSuggestions] = useState<string[]>([]);
   
+
+  const listRef = useRef<HTMLDivElement>(null);
+   useEffect(() => {
+    if (!listRef.current) return;
+    listRef.current.scrollTop = listRef.current.scrollHeight;
+   }, [messages, isOpen, isMinimised]);
+
+
+
   return (
     <div className="fixed bottom-4 right-4 w-96 h-full bg-card rounded-lg shadow-lg">
-      
+      <div ref={listRef} className="overflow-y-auto">
+        {messages.map((m) => {
+          return <MessageBubble key={m.id} message={m} />;
+        })}
+      </div>
     </div>
   )}; 
