@@ -1,5 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
+import { X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 export type ChatMessage = {
@@ -53,15 +54,47 @@ export default function ChatWidget() {
     if (!listRef.current) return;
     listRef.current.scrollTop = listRef.current.scrollHeight;
    }, [messages, isOpen, isMinimised]);
+   if (listRef.current) {
+     listRef.current.scrollTo({
+       top: listRef.current.scrollHeight,
+       behavior: "smooth",
+     });
+   }
 
+   const send = () => {
+    const trimmed = input.trim();
+    if (!trimmed) return;
+    const userMsg: ChatMessage = {
+      id: `${Date.now()}-user`,
+      role: "user",
+      content: trimmed,
+      timestamp: new Date(),
+      messageType: "text",
+    };
+    setMessages((prev) => [...prev, userMsg]);
+    setInput("");
 
+    setTimeout(() => {
+      const reply: ChatMessage = {
+        id: `${Date.now()}-assistant`,
+        role: "assistant",
+        content: "Thinking ...", 
+        timestamp: new Date(),
+        messageType: "text",
+      };
+      setMessages((prev) => [...prev, reply]);
+    }, 1000);
+  };
+
+  const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      send();
+    }
+  };
 
   return (
-    <div className="fixed bottom-4 right-4 w-96 h-full bg-card rounded-lg shadow-lg">
-      <div ref={listRef} className="overflow-y-auto">
-        {messages.map((m) => {
-          return <MessageBubble key={m.id} message={m} />;
-        })}
-      </div>
+    <div className="fixed bottom-4 right-4 w-96 h-half bg-card rounded-lg shadow-lg">
+
     </div>
   )}; 
