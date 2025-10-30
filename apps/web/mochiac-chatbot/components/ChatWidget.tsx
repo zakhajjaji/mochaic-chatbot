@@ -1,6 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
+import { MessageSquareMore } from "lucide-react";
 
 export type ChatMessage = {
   role: "user" | "assistant" | "system";
@@ -96,12 +97,10 @@ export default function ChatWidget() {
     <div className="fixed bottom-4 right-4">
     {!isOpen ? (
       <button
-        className="rounded-full bg-blue-600 text-white px-4 py-2 shadow-lg"
+        className="w-20 h-20 rounded-full bg-blue-600 text-white px-4 py-2 shadow-lg"
         onClick={() => setIsOpen(true)}
       >
-        <svg className="w-20 h-10" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 3.866-3.582 7-8 7a8.957 8.957 0 0 1-4-1l-4 1 1-4a7.937 7.937 0 0 1-1-4c0-3.866 3.582-7 8-7s8 3.134 8 7z" />
-        </svg>
+        <MessageSquareMore className="w-6 h-6 mt-2 mx-auto" />
         <span className="text-sm font-medium">Chat</span>
       </button>
     ) : (
@@ -151,7 +150,7 @@ export default function ChatWidget() {
         )}
 
         {isMinimised && (
-          <div className="p-3 text-xs text-foreground">Minimized</div>
+          <div className="p-3 text-xs text-foreground">Minimised</div>
         )}
       </div>
     )}
