@@ -97,8 +97,10 @@ export default function ChatWidget() {
     <div className="fixed bottom-4 right-4">
     {!isOpen ? (
       <button
-        className="w-20 h-20 rounded-full bg-blue-600 text-white px-4 py-2 shadow-lg"
-        onClick={() => setIsOpen(true)}
+        className="w-20 h-20 rounded-full bg-primary text-white px-4 py-2 shadow-lg"
+        onClick={() => setIsOpen(true)
+        }
+        id="ChatWidget"
       >
         <MessageSquareMore className="w-6 h-6 mt-2 mx-auto" />
         <span className="text-sm font-medium">Chat</span>
