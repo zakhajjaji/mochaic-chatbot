@@ -72,10 +72,8 @@ export function formtModelText(raw: string): string {
   text = text.charAt(0).toUpperCase() + text.slice(1);
 
   return text.trim();
+  // use in tsx file <p>{formtModelText(rawText)}</p>
 }
 
-// use in tsx file <p>{formtModelText(rawText)}</p>
 
-// central place for re-usable helper functions
-// The place to store small, re-usable helper functions 
-// buttons, inputs, navbars, cards, modals, forms etc 
+
