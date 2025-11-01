@@ -4,7 +4,6 @@
 
 # this file will also contain the main api route and the logic for the api
 
-from dataclasses import Field
 from datetime import datetime
 from pydantic import BaseModel  # pyright: ignore[reportMissingImports]
 from typing import List, Optional
@@ -12,7 +11,7 @@ from typing import List, Optional
 class ChatMessage(BaseModel): 
     role: str 
     content: str
-    timestamp: Optional[datetime.datetime] = None
+    timestamp: Optional[datetime] = None
     message_type: Optional[str] = None
 
 class ChatRequest(BaseModel):
